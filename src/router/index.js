@@ -1,19 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+const PageOne = () => import('../views/PageOne.vue')
+const PageTow = () => import('../views/PageTow.vue')
+
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home
-  // },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
+  {
+    path: '/selectBook',
+    name: 'selectBook',
+    meta: '查询图书',
+    component: PageOne
+  },{
+    path: '/addBook',
+    name: 'addBook',
+    meta: '添加图书',
+    component: PageTow
+  },{
+    path: '/editBook/:id',
+    name: 'editBook',
+    props: true,
+    component: PageTow
+  }
 ]
 
 const router = new VueRouter({
